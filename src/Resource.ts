@@ -158,7 +158,7 @@ export class Resource extends BaseResource {
           // to that:
           // { post: { id: 1 } }
           const id = (property.column.type === Number) ? Number(param) : param
-          preparedParams[property.column.propertyName] = { id }
+          preparedParams[property.column.propertyName] = { [property.column.referencedColumn?.propertyName || 'id']: id }
         }
       }
     })
